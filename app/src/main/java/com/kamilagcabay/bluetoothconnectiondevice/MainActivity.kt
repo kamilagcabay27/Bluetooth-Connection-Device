@@ -5,6 +5,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -58,7 +59,8 @@ class MainActivity : AppCompatActivity() {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 registerBluetoothReceiver()
             } else {
-                // Kullanıcı izni reddetti, uygun bir mesaj göster
+                // Kullanıcı izni reddetti, uygun bir mesaj gösterme
+                Toast.makeText(this, "Permission Needed", Toast.LENGTH_LONG).show()
             }
         }
     }
